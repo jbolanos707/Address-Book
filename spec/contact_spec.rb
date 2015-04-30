@@ -1,5 +1,6 @@
 require('rspec')
 require('contact')
+require('phone')
 
 describe(Contact) do
 
@@ -16,6 +17,8 @@ describe(Contact) do
       expect(test_contact.birthday()).to(eq("October 16"))
     end
   end
+
+
 
 
 
