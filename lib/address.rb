@@ -1,11 +1,22 @@
 class Address
-  attr_reader(:street, :city, :state, :zip, :type)
+  @@addresses = []
+
+  attr_reader(:home_address , :work_address)
 
   define_method(:initialize) do |attributes|
-    @street = attributes.fetch(:street)
-    @city = attributes.fetch(:city)
-    @state = attributes.fetch(:state)
-    @zip = attributes.fetch(:zip)
-    @type = attributes.fetch(:type)
+    @home_address = attributes.fetch(:home_address)
+    @work_address = attributes.fetch(:work_address)
+  end
+
+  define_method(:save) do
+    @@addresses.push(self)
+  end
+
+  define_singleton_method(:clear) do
+    @@addresses = []
+  end
+
+  define_singleton_method(:all) do
+    @@addresses
   end
 end
